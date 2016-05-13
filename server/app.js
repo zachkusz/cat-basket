@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var module = require('./routes/module');
 
-app.set('port', 5000);
+app.set('port', (process.env.PORT || 5000));
 
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 //ROUTES - was app.get and app.post(/felines)
 
-app.use('/cats', module); //is this all i need????
+app.use('/cats', module);
 
 app.use('/', index);
 
